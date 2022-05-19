@@ -1,7 +1,12 @@
+package prendas;
+
 import categorias.*;
 import exepcionesPrenda.ExcepcionPrendaNoTieneCorrespondencia;
 import exepcionesPrenda.ExcepcionPrendaIncompleta;
+import materialesPrenda.Material;
+import servicioMeteorologico.ProbabilidadLluvia;
 import tipoPrendas.*;
+import utils.ColorRGB;
 
 import java.util.Arrays;
 import java.util.List;
@@ -12,9 +17,12 @@ public class Prenda {
   String descripcion;
   TipoPrenda tipo;
   Categoria categoria;
-  String material;
-  String colorPrimario;
-  String colorSecundario;
+  Material material;
+  ColorRGB colorPrimario;
+  ColorRGB colorSecundario;
+  private Integer temperaturaMaxima;
+  private Integer temperaturaMinima;
+  private List<ProbabilidadLluvia> esParaProbabilidad;
 
   public String getDescripcion() {
     return descripcion;
@@ -24,13 +32,20 @@ public class Prenda {
     this.descripcion = descripcion;
   }
 
-  Prenda(TipoPrenda tipoPrenda, Categoria categoria, String material, String colorPrimario, String colorSecundario) {
-    validarPrenda(tipoPrenda, categoria, material, colorPrimario);
+  public Categoria getCategoria() {
+    return categoria;
+  }
+
+  Prenda(TipoPrenda tipoPrenda, Categoria categoria, Material material, ColorRGB colorPrimario, ColorRGB colorSecundario,
+         Integer temperaturaMaxima, Integer temperaturaMinima, List<ProbabilidadLluvia> esParaProbabilidad) {
     this.tipo = tipoPrenda;
     this.categoria = categoria;
     this.material = material;
     this.colorPrimario = colorPrimario;
     this.colorSecundario = colorSecundario;
+    this.temperaturaMaxima = temperaturaMaxima;
+    this.temperaturaMinima = temperaturaMinima;
+    this.esParaProbabilidad = esParaProbabilidad;
   }
 
   static public void validarPrenda(TipoPrenda tipoPrenda, Categoria categoria, String material, String colorPrimario) {
@@ -42,6 +57,14 @@ public class Prenda {
     if (caracteristicas.stream().anyMatch(Objects::isNull)) { //Objects.isNull(p)
       throw new ExcepcionPrendaIncompleta("Faltan datos para completar la prenda.");
     }
+  }
+
+  public boolean esAptoParaProbabilidadLluvia(ProbabilidadLluvia humedad) {
+    return this.esParaProbabilidad.contains(humedad);
+  }
+
+  public boolean esAptoParaTemperatura(Integer temperatura) {
+    return (this.temperaturaMaxima >= temperatura) && (temperatura >= this.temperaturaMinima);
   }
 }
 
