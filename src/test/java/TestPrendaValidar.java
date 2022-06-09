@@ -1,6 +1,6 @@
 import categorias.Categoria;
-import exepcionesPrenda.ExcepcionPrendaNoTieneCorrespondencia;
-import exepcionesPrenda.ExcepcionPrendaIncompleta;
+import exepciones.ExcepcionPrendaNoTieneCorrespondencia;
+import exepciones.ExcepcionPrendaIncompleta;
 import materialesPrenda.Tela;
 import prendas.Borrador;
 import prendas.Prenda;

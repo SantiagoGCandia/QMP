@@ -1,5 +1,5 @@
 import categorias.Categoria;
-import exepcionesPrenda.ExcepcionNoHayPrendasParaAtuendo;
+import exepciones.ExcepcionNoHayPrendasParaAtuendo;
 import guardarropas.Guardarropas;
 import materialesPrenda.*;
 import org.junit.jupiter.api.BeforeEach;
@@ -29,7 +29,7 @@ public class TestCondicionesClimaticas {
 
   @BeforeEach
   public void init() {
-    ropero = new Guardarropas();
+    ropero = new Guardarropas(null);
     camisaMangasCortas.setTipo(TipoPrenda.CAMISA_MANGAS_CORTAS);
     camisaMangasCortas.setCategoria(Categoria.SUPERIOR);
     camisaMangasCortas.setTela(Tela.ALGODON);

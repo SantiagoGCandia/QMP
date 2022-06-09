@@ -1,8 +1,8 @@
 package prendas;
 
 import categorias.*;
-import exepcionesPrenda.ExcepcionPrendaNoTieneCorrespondencia;
-import exepcionesPrenda.ExcepcionPrendaIncompleta;
+import exepciones.ExcepcionPrendaNoTieneCorrespondencia;
+import exepciones.ExcepcionPrendaIncompleta;
 import materialesPrenda.Material;
 import servicioMeteorologico.ProbabilidadLluvia;
 import tipoPrendas.*;

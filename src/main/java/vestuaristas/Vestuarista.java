@@ -1,7 +1,7 @@
 package vestuaristas;
 
 import categorias.Categoria;
-import exepcionesPrenda.ExcepcionNoHayPrendasParaAtuendo;
+import exepciones.ExcepcionNoHayPrendasParaAtuendo;
 import guardarropas.Guardarropas;
 import prendas.Atuendo;
 import prendas.Prenda;

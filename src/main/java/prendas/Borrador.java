@@ -1,8 +1,8 @@
 package prendas;
 
 import categorias.Categoria;
-import exepcionesPrenda.ExcepcionPrendaIncompleta;
-import exepcionesPrenda.ExcepcionPrendaNoTieneCorrespondencia;
+import exepciones.ExcepcionPrendaIncompleta;
+import exepciones.ExcepcionPrendaNoTieneCorrespondencia;
 import materialesPrenda.Material;
 import materialesPrenda.Tela;
 import materialesPrenda.Trama;

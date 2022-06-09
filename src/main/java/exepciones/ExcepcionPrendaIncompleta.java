@@ -1,4 +1,4 @@
-package exepcionesPrenda;
+package exepciones;
 
 public class ExcepcionPrendaIncompleta extends RuntimeException {
   public ExcepcionPrendaIncompleta(String msg) {
